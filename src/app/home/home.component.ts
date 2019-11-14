@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
+  //To toggle side nav in mobile version
   toggleNav() {
     console.log('toggle');
     this.responsive = !this.responsive;

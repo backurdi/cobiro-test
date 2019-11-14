@@ -19,11 +19,21 @@ export class ItemListComponent implements OnInit {
     this.fetchList();
   }
 
+  //Fetch list from server
+  fetchList() {
+    this.itemService.getItems().subscribe(items => {
+      this.initialList = items;
+      this.searchList = this.initialList;
+      //Process list and set it up with children
+      this.initiateList();
+    });
+  }
+
   initiateList() {
     let sortedList: Item[] = [];
     let childList: Item[] = [];
 
-    //Insert top level elements
+    //Split list into top level components and children
     this.searchList.forEach(e => {
       if (e.parent_id === null || this.searchList.length === 1) {
         e.child = [];
@@ -34,19 +44,13 @@ export class ItemListComponent implements OnInit {
       }
     });
 
+    //Find the parent component for all the children
     childList.forEach(e => {
       this.findParent(sortedList, e);
     });
 
+    //Add the finished list to Items(The list which is displayed in the DOM)
     this.items = sortedList;
-  }
-
-  fetchList() {
-    this.itemService.getItems().subscribe(items => {
-      this.initialList = items;
-      this.searchList = this.initialList;
-      this.initiateList();
-    });
   }
 
   findParent(sortList, child) {
@@ -59,14 +63,17 @@ export class ItemListComponent implements OnInit {
     }
   }
 
+  //Search function
   getByKeyword(e) {
     e.preventDefault();
+    //Get search text, trim it and make it lowercase
     const search = this.searchText.trim().toLowerCase();
     if (!search.length) this.searchList = this.initialList;
     this.searchList = this.initialList.filter(
       item => item.title.toLowerCase().indexOf(search) > -1,
     );
 
+    //Process list and set it up with children
     this.initiateList();
   }
 }

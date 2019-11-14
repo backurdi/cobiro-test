@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
+  //Send toggle event to parent
   menuClicked() {
     return this.toggle.emit('toggle');
   }
