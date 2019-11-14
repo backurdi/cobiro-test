@@ -1,0 +1,24 @@
+<div id="item-element">
+  <div id="parent">
+    <div class="elements">
+      <h3>{{ item.title }}</h3>
+      <a [routerLink]="['/items', item.id]">Button</a>
+    </div>
+    <div class="children">
+      <div id="child1" *ngFor="let child of item.child">
+        <div class="elements">
+          <h3>{{ child.title }}</h3>
+          <a [routerLink]="['/items', child.id]">Button</a>
+        </div>
+        <div class="children">
+          <div id="child2" *ngFor="let child1 of child.child">
+            <div class="elements">
+              <h3>{{ child1.title }}</h3>
+              <a [routerLink]="['/items', child1.id]">Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

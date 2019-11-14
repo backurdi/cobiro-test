@@ -1,7 +1,9 @@
-<div id="home">
+<div id="items-page">
   <app-header></app-header>
   <main>
     <app-sidenav [ngClass]="responsive ? 'mobile' : ''" [toggle]="toggleNav()"></app-sidenav>
-    <app-item-list></app-item-list>
+    <div id="item-info">
+      <h1>{{ item.title }}</h1>
+    </div>
   </main>
 </div>

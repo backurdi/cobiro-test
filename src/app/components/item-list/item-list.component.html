@@ -1,0 +1,9 @@
+<div id="item-list">
+  <div class="form">
+    <input placeholder="Search" type="text" [(ngModel)]="searchText" />
+    <button (click)="getByKeyword($event)">
+      <img src="../../../assets/images/Path 3560.svg" alt="" />
+    </button>
+  </div>
+  <app-item-element *ngFor="let item of items" [item]="item"> </app-item-element>
+</div>

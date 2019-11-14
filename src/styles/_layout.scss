@@ -1,3 +1,64 @@
 body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: 'Soleil', sans-serif;
+  background-color: #f4f9fc;
+}
+
+app-item-list {
+  flex: 1;
+  margin: 40px 70px;
+}
+#side-nav {
+  padding: 40px;
+}
+
+#header {
+  padding: 16px 40px;
+}
+
+.burger-nav {
+  display: none;
+}
+
+//responsive
+@media only screen and (max-width: 800px) {
+  #header {
+    padding: 16px 10px;
+
+    .burger-nav {
+      display: block;
+      cursor: pointer;
+    }
+
+    .user-name {
+      display: none;
+    }
+
+    .userImage {
+      margin-right: 10px;
+    }
+  }
+
+  .mobile {
+    #side-nav {
+      width: 0;
+      padding: 0;
+      transition: all 0.5s;
+
+      & > * {
+        opacity: 0;
+      }
+    }
+  }
+
+  app-item-list {
+    margin: 40px 35px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  app-item-list {
+    margin: 40px 10px;
+  }
 }

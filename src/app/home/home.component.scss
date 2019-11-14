@@ -1,0 +1,9 @@
+#home {
+  main {
+    display: flex;
+  }
+
+  app-sidenav {
+    transition: width 5s;
+  }
+}

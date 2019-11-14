@@ -1,0 +1,23 @@
+#header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeef4;
+
+  button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+
+    .userImage {
+      width: 32px;
+    }
+
+    p {
+      font-weight: 600;
+      margin: 0 10px;
+    }
+  }
+}
