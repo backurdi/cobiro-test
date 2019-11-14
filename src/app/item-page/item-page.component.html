@@ -1,9 +1,12 @@
 <div id="items-page">
   <app-header></app-header>
   <main>
-    <app-sidenav [ngClass]="responsive ? 'mobile' : ''" [toggle]="toggleNav()"></app-sidenav>
+    <!--Giver fejl ved initiel load men hvis den ændres efter compiling, så fungere det-->
+    <!-- <app-sidenav [ngClass]="responsive ? 'mobile' : ''" [toggle]="toggleNav()"></app-sidenav> -->
+    <app-sidenav></app-sidenav>
     <div id="item-info">
-      <h1>{{ item.title }}</h1>
+      <!--Giver fejl ved initiel load men hvis den ændres efter compiling, så fungere det-->
+      <!-- <h1>{{ item.title }}</h1> -->
     </div>
   </main>
 </div>

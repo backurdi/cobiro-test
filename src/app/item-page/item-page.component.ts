@@ -10,15 +10,14 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./item-page.component.scss'],
 })
 export class ItemPageComponent implements OnInit {
-  item: Item[];
+  item: Item[] = [];
   responsive: boolean = false;
   constructor(private route: ActivatedRoute, private itemService: ItemService) {}
 
   ngOnInit() {
     //Get single item with Id from Url params
     this.route.paramMap.subscribe(params => {
-      //Kunne ikke helt forstå hvorfor den giver fejl. Koden køre dog stadgi
-      this.itemService.getItem(params.params.itemId).subscribe(item => {
+      this.itemService.getItem(params.getAll('itemId')[0]).subscribe(item => {
         this.item = item;
       });
     });
